@@ -5,6 +5,8 @@ The app generates item sets by analyzing build orders and categorizing items int
 
 The app allows you to **search** item sets by **queue** (Ranked Solo, ARAM), ranked **tier** (Challenger, Master, Diamond), and even **champion**!
 
+The web app currently only provides item sets from matches in the NA region. More regions to be added very soon!
+
 There is even a Summoner Search feature coming soon, allowing you to generate item sets based on your own match history!
 
 For more information, visit the [About Page.](http://itemsets.net/#/about)
