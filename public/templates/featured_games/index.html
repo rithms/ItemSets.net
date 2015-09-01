@@ -1,0 +1,114 @@
+<div class="row">
+  <div class="col-xs-12" style="text-align: center">
+    <h2 style="color: #84f3ca">Featured Item Sets</h2>
+  </div>
+  <ul class="nav nav-pills nav-justified" style="margin-bottom: 10px">
+    <li role="presentation" ng-class="{true: 'active', false: ''}[mode === 'CLASSIC']" ng-click="setMode('CLASSIC')"><a>Ranked Solo</a></li>
+    <li role="presentation" ng-class="{true: 'active', false: ''}[mode === 'ARAM']" ng-click="setMode('ARAM')"><a>ARAM</a></li>
+  </ul>
+</div>
+
+<div class="row">
+  <div ng-show="mode === 'CLASSIC'" class="col-xs-6 pull-left" style="text-align: center">
+    <ul class="nav nav-pills nav-pills-custom" style="margin-bottom: 10px">
+      <li role="presentation" ng-class="{true: 'active', false: ''}[tier === 'ALL']" ng-click="setTier('ALL')">
+        <a> <img style="vertical-align: middle; height: 25px;" ng-src="img/tier-icons/base_icons/UNRANKED.png"> All</a></li>
+      <li role="presentation" ng-class="{true: 'active', false: ''}[tier === 'CHALLENGER']" ng-click="setTier('CHALLENGER')">
+        <a> <img style="vertical-align: middle; height: 25px;" ng-src="img/tier-icons/base_icons/CHALLENGER.png"> Challenger</a></li>
+      <li role="presentation" ng-class="{true: 'active', false: ''}[tier === 'MASTER']" ng-click="setTier('MASTER')">
+        <a><img style="vertical-align: middle; height: 25px;" ng-src="img/tier-icons/base_icons/MASTER.png"> Master</a></li>
+      <li role="presentation" ng-class="{true: 'active', false: ''}[tier === 'DIAMOND']" ng-click="setTier('DIAMOND')">
+        <a><img style="vertical-align: middle; height: 25px;" ng-src="img/tier-icons/base_icons/DIAMOND.png"> Diamond</a></li>
+    </ul>
+  </div>
+
+  <div class="col-xs-2 pull-right" style="text-align: center; display: inline">
+    <form id="champion-form">
+      <select id="champion-select" class="form-control" style="margin-bottom: 20px;" ng-model="selectedChampion" ng-change="getMatchesByChampion(selectedChampion)">
+        <option value="0">All</option>
+        <option ng-repeat="champion in champions| object2Array | orderBy:'name'" value="{{champion.id}}" ng-show="{{champion.name.length > 0}}">{{champion.name}}</option>
+      </select>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-xs-12" ng-repeat="set in sets" style="background-color: #091511; margin-bottom: 10px; padding: 0;
+  border-radius: 5px; border-width: 1px; border-color: #c9c47a; border-style: solid; border-left-width: 10px;" ng-style="set.winner === true && {'border-left-color': 'green'} ||
+  set.winner === false && {'border-left-color': 'red'}">
+    
+    <div style="margin-bottom: 10px; height: 30px; line-height: 30px; border-top-right-radius: 5px; background-color: #162b27;
+    border-bottom-width: 1px; border-bottom-color: #c9c47a; border-bottom-style: solid; border-left-style: none">
+       <img data-toggle="tooltip" data-placement="left" title="{{set.tier}}" style="vertical-align: middle; height: 25px; padding-left: 10px" ng-src="img/tier-icons/base_icons/{{set.tier}}.png">
+       <img ng-show="mode === 'CLASSIC'" style="vertical-align: middle; height: 20px;" ng-src="img/profileicon/{{set.icon}}.png">
+       <h4 ng-show="mode === 'CLASSIC'" style="display: inline; vertical-align: middle; color: #c9c47a">{{set.name}}</h4>
+       <h4 ng-show="mode === 'ARAM'" style="display: inline; vertical-align: middle; color: #c9c47a">{{champions[set.championId].name}}</h4>
+       <h5 class="pull-right" style="display: inline; vertical-align: middle; margin-right: 100px; color: #c9c47a">{{set.updated_at | date}}</h5>
+     </div>
+
+    <div style="height: 100px; margin-bottom: 10px;">
+
+      <div style="margin-right: 10px; " class="pull-left">
+        <img data-toggle="tooltip" data-placement="left" title="{{champions[set.championId].name}}" style="padding-left: 10px; height: 100px; width: 110px" ng-src="img/champion/{{champions[set.championId].image}}"> 
+      </div>
+
+      <div style="width: 50px" class="pull-left">
+        <img data-toggle="tooltip" data-placement="top" title="{{spells[set.spell1].name}}" height="45px"  style="margin-bottom: 10px;" ng-src="img/spell/{{spells[set.spell1].image}}"> 
+        <img data-toggle="tooltip" data-placement="bottom" title="{{spells[set.spell2].name}}" height="45px" ng-src="img/spell/{{spells[set.spell2].image}}"> 
+      </div>
+
+      <div class="pull-left" style="height: 100px; line-height: 100px; vertical-align: middle; padding-left: 10px; margin-top: 5px">
+            <h4 style="vertical-align: middle; text-align: right; margin-left: 5px; margin-bottom: 10px; color: #84f3ca"><span style="color: green">{{set.kills | number}}</span> / <span style="color: red">{{set.deaths | number}}</span> / <span style="color: orange">{{set.assists | number}}</span> <img data-toggle="tooltip" data-placement="top" title="KDA" style="vertical-align: middle" ng-src="img/scoreboard/score.png"></h4>
+            <div style="background-color: #162b27; border-radius: 5px; width: 100px" ng-if="set.lane === 'BOTTOM' && set.role === 'DUO_SUPPORT'">
+              <h5 style="vertical-align: middle; text-align: center; color: #84f3ca">Support</h5> </div>
+              <div style="background-color: #162b27; border-radius: 5px; width: 100px" ng-if="set.lane === 'BOTTOM' && set.role === 'DUO_CARRY'">
+                <h5 style="vertical-align: middle; text-align: center; color: #84f3ca">Bottom</h5> </div>
+              <div style="background-color: #162b27; border-radius: 5px; width: 100px" ng-if="set.lane === 'JUNGLE'">
+                <h5 style="vertical-align: middle; text-align: center; color: #84f3ca">Jungle</h5> </div>
+              <div style="background-color: #162b27; border-radius: 5px; width: 100px" ng-if="set.lane === 'TOP'">
+                <h5 style="vertical-align: middle; text-align: center; color: #84f3ca">Top</h5> </div>
+              <div style="background-color: #162b27; border-radius: 5px; width: 100px" ng-if="set.lane === 'MIDDLE'">
+                <h5 style="vertical-align: middle; text-align: center; color: #84f3ca">Mid</h5>
+            </div>
+      </div>
+
+      <div class="pull-left" style="height: 100px; line-height: 50px; vertical-align: middle; margin-left: 15px">
+            <div style="text-align: right; margin-bottom: -15px; margin-top: 5px">
+              <h4 style="vertical-align: middle; text-align: center; display: inline; color: #84f3ca">{{set.gold | number}}</h4> 
+              <img data-toggle="tooltip" data-placement="top" title="Gold Earned" style="vertical-align: middle" ng-src="img/scoreboard/gold.png">
+            </div>
+            <div style="text-align: right">
+              <h4 style="vertical-align: middle; text-align: center; display: inline; color: #84f3ca">{{set.minions | number}}</h4> 
+              <img data-toggle="tooltip" data-placement="bottom" title="Minions Killed" style="vertical-align: middle" ng-src="img/scoreboard/minion.png">
+            </div>
+      </div>
+
+      <div class="pull-left" style="height: 100px; line-height: 100px; padding-right: 10px; margin-left: 15px;">
+          <img data-toggle="tooltip" data-placement="top" title="{{items[set.item0].name}}" style="vertical-align: middle" ng-src="img/item/{{items[set.item0].image}}">
+          <img data-toggle="tooltip" data-placement="top" title="{{items[set.item1].name}}" style="vertical-align: middle" ng-src="img/item/{{items[set.item1].image}}">
+          <img data-toggle="tooltip" data-placement="top" title="{{items[set.item2].name}}" style="vertical-align: middle" ng-src="img/item/{{items[set.item2].image}}">
+          <img data-toggle="tooltip" data-placement="top" title="{{items[set.item3].name}}" style="vertical-align: middle" ng-src="img/item/{{items[set.item3].image}}">
+          <img data-toggle="tooltip" data-placement="top" title="{{items[set.item4].name}}" style="vertical-align: middle" ng-src="img/item/{{items[set.item4].image}}">
+          <img data-toggle="tooltip" data-placement="top" title="{{items[set.item5].name}}" style="vertical-align: middle" ng-src="img/item/{{items[set.item5].image}}">
+          <img data-toggle="tooltip" data-placement="top" title="{{items[set.item6].name}}" style="vertical-align: middle" ng-src="img/item/{{items[set.item6].image}}">
+      </div>
+
+      <div class="pull-right" style="height: 100px; line-height: 100px; margin-right: 90px;">
+          <a type="submit" class="btn btn-custom sharp" style="vertical-align: middle" href="#/item_set/{{set._id}}">Get Item Set</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-xs-12">
+    <button ng-show="hasMoreData && !loading" ng-click="getMoreMatches()" class="btn btn-custom sharp" style="vertical-align: middle; width: 100%">More...</button>
+  </div>
+
+  <div class="col-xs-12" ng-show="sets.length === 0 && !loading" style="background-color: #091511; margin-bottom: 10px; padding: 0;
+  border-radius: 5px; border: 1px solid #c9c47a; border-left-style: solid; border-left-width: 10px; border-color: #c9c47a">
+    <h1 style="padding-left: 10px; color: #84f3ca" >No Item Sets Found</h1>
+  </div>
+
+</div>

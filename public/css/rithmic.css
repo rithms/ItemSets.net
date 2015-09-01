@@ -1,0 +1,81 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background: #030A09;
+}
+
+.scroll-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.btn-custom {
+  background-color: hsl(152, 43%, 15%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#21533c", endColorstr="#153627");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#21533c), to(#153627));
+  background-image: -moz-linear-gradient(top, #21533c, #153627);
+  background-image: -ms-linear-gradient(top, #21533c, #153627);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #21533c), color-stop(100%, #153627));
+  background-image: -webkit-linear-gradient(top, #21533c, #153627);
+  background-image: -o-linear-gradient(top, #21533c, #153627);
+  background-image: linear-gradient(#21533c, #153627);
+  border-color: #153627 #153627 hsl(152, 43%, 13%);
+  color: #B8FCE3 !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.13);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: #c9c47a;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #162b27;
+    color: #84f3ca;
+    border: 1px solid #DED990;
+}
+
+.nav-pills > li > a, .nav-pills > li > a:hover {
+    border: 1px solid #52503C;
+}
+
+.nav-pills > li > a:hover {
+	background-color: #24403B;
+	color: #DED990;
+}
+
+.jumbotron {
+	height: 250px;
+  	color: white;
+  	text-shadow: black 0.3em 0.3em 0.3em;
+  	background: url('../img/jumbo.png') no-repeat center center !important;
+}
+
+.navbar-custom {
+    background-color:#162b27;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#B8FCE3;
+}
+
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+
+.radio-inline {
+  color: #DED990;
+}

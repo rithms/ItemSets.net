@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12" style="text-align: left; background-color: #162b27; border-top-left-radius: 5px; border-top-right-radius: 5px; padding-bottom: 10px; border-color: #c9c47a; border-style: solid; border-width: 2px">
+  	<h2 style="color: #c9c47a">Item Sets - Tutorial</h2>
+  </div>
+
+  <div class="col-xs-12" style="text-align: left; background-color: #091511; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; border-color: #c9c47a; border-style: solid; border-top-width: 0;">
+  	<div class="col-xs-12" style="text-align: left; border: 0 solid #05312d;">
+  		<h3 style="color: #c9c47a">What are Item Sets?</h3>
+  		<p style="color: white">An item set is a set of items that can be displayed in the in-game shop of League of Legends. An item set can consist of multiple blocks, used to categorize items in the same set.</p>
+  		<p style="color: white">As an example, below you can see an item set named 'Best Item Set NA', consisting of multiple blocks named 'Starting Items', 'Offensive Items', 'Defensive Items', 'Final Build', and 'Consumables'.</p>
+  		<p style="color: white">Item sets allow you to associate items with specific champions and maps so you don't have to waste your precious time playing hide-and-seek with the in-game store.</p>
+	</div>
+
+	<div class="col-xs-12" style="text-align: left; border: 0 solid #05312d;">
+  		<h3 style="color: #c9c47a">Custom Sets vs. Client Sets</h3>
+  		<p style="color: white">Client created sets are item sets that are created using the game client. These item sets are associated with your account, and are loaded in when you start a game.</p>
+  		<p style="color: white">Custom created sets are item sets created outside the game client. These item sets are stored locally on your computer, and aren't associated with your account. This means custom created item sets won't follow you if you switch computers like client created item sets do. Custom created item sets won't be visible on the client under the Item Sets tab, but will still be loaded in game.</p>
+  		<p style="color: white">On this site, you will only find custom created item sets. However, you are free to create a client created item set yourself, inspired by any of the generated sets you find on this site.</p>
+	</div>
+
+	<div class="col-xs-12" style="text-align: left; border: 0 solid #05312d;">
+  		<h3 style="color: #c9c47a">File Location</h3>
+  		<p style="color: white">To load item sets into the game, you will need to save the JSON data provided to you on this site into a JSON file (i.e. Item_Set.json), and place the file in it's respective directory.</p>
+  		<p style="color: white">You can place the file in the global directory to make the item set available for all champions, or you can place the file in a champion specific directory using the champion's key name.</p>
+  		<h5 style="color: #c9c47a">Windows<h5>
+  		<p style="color: white">All Champion Directory: <span style="color: #14C74A">League of Legends\Config\Global\Recommended\</span></p>
+  		<p style="color: white">Champion Specific: <span style="color: #14C74A">League of Legends\Config\Champions\<span style="color: yellow">{championKey}</span>\Recommended\</span></p>
+
+  		<h5 style="color: #c9c47a">Mac<h5>
+  		<p style="color: white">All Champion Directory: <span style="color: #14C74A">League of Legends.app/Contents/LoL/Config/Global/Recommended/</span></p>
+  		<p style="color: white">Champion Specific: <span style="color: #14C74A">League of League of Legends.app/Contents/LoL/Config/Champions/<span style="color: yellow">{championKey}</span>/Recommended/</span></p>
+  		<br>
+  		<p style="color: white">For more information about Item Sets, refer to the <a style="color: red;" href="https://developer.riotgames.com/docs/item-sets">Riot Games API Item Set Documentation.</a></p>
+  		<br>
+  		<p style="color: #84f3ca"><i>*Note: If you don't know a champion's key, refer to <a ng-href="#/champion_keys">this page.</a></i></p>
+	</div>
+
+  </div>
+  
+</div>

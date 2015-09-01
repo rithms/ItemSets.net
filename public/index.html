@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ItemSetApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ItemSets.net - Buy Like a Pro</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!-- Optional theme -->
+  <link rel="stylesheet" href="css/rithmic.css">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="border-color: #c9c47a">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="color: #84f3ca" href="#/featured_sets">Item Sets</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input data-toggle="tooltip" data-placement="bottom" title="Coming Soon..." type="text" class="form-control" placeholder="Summoner Name" ng-disabled="true">
+            </div>
+            <button type="submit" class="btn btn-custom" ng-disabled="true">Search</button>
+          </form>
+          <ul class="nav navbar-nav">
+            <li><a href="#/how_to">Tutorial</a></li>
+            <li><a href="#/about">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>ItemSets.net</h1>
+        <p>Buy like a professional. Play like a professional.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div ng-view></div>
+    </div> <!-- /container -->
+
+    <div class="container">
+      <hr>
+      <footer>
+        <div class="row">
+              <div class="col-xs-12">
+            <p style="text-align: center">"ItemSets.net" isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
+          </div>
+          <div class="col-xs-12" style="margin-top: 10px; text-align: center">
+            <p>&copy; Rithms 2015</p>
+          </div>
+        </div>
+    </footer>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+  <script src="js/application.js"></script>
+  <!-- App -->
+	<script src="js/app.js"></script>
+  <script src="js/routes.js"></script>
+  <!-- Filters -->
+  <script src="js/filters/object2Array-filter.js"></script>
+  <!-- Controllers -->
+  <script src="js/controllers/featured-games-controller.js"></script>
+  <script src="js/controllers/item-set-controller.js"></script>
+  <script src="js/controllers/champion-keys-controller.js"></script>
+  <script src="js/controllers/search-controller.js"></script>
+  <!-- Services -->
+  <script src="js/services/static-data-service.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>

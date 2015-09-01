@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-xs-12" style="text-align: left; background-color: #162b27; border-top-left-radius: 5px; border-top-right-radius: 5px; padding-bottom: 10px; border-color: #c9c47a; border-style: solid; border-width: 2px">
+  	<form class="form-inline">
+	  <div class="form-group">
+	    <h2 style="color: #c9c47a">{{set.item_set.title}}</h2>
+	    <input type="text" class="form-control" ng-model="set.item_set.title" ng-show="editMode">
+	  </div>
+	</form>
+  </div>
+
+  <div class="col-xs-12" style="text-align: left; background-color: #091511; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; border-color: #c9c47a; border-style: solid; border-top-width: 0;">
+  	<div class="col-xs-12" style="text-align: left; border: 0 solid #05312d;" ng-repeat="block in set.item_set.blocks" ng-style="{ 'border-bottom-width': '1px' }">
+  		<form class="form-inline">
+		  <div class="form-group">
+		    <h3 style="color: #84f3ca">{{block.type}}</h3>
+		    <input type="text" class="form-control" ng-model="block.type" ng-show="editMode">
+		  </div>
+		</form>
+	  	<div class="pull-left" style="height: 100px; line-height: 100px; padding-right: 10px; margin-left: 15px;">
+	  		<div ng-repeat="item in block.items" style="position: relative; float: left; clear: none;">
+	  		<img data-toggle="tooltip" data-placement="bottom" title="{{items[item.id].name}}" style="vertical-align: middle; margin-right: 5px; position: relative; z-index: 1; border: 1px solid #c9c47a" ng-src="img/item/{{items[item.id].image}}">
+	  		<h4 style="color: white; display: block; position: absolute; width: 100%; top: 52%; left: 30%; z-index: 2; text-align: center;" ng-if="item.count > 1">{{item.count}}</h4>
+	  		</div>
+	  	</div>
+	</div>
+
+	<div class="col-xs-12" style="text-align: left; border: 0 solid #05312d; margin-bottom: 15px">
+		<h3 style="color: #84f3ca; margin-bottom: 25px" ng-init="map = 'Any'">Map</h3>
+		<label class="radio-inline" ng-class="{true: '', false: 'disabled'}[editMode]">
+		  <input ng-checked="true" type="radio" id="inlineRadio1" value="any" ng-model="set.item_set.map" ng-change="set.item_set.mode = 'any'" ng-disabled="!editMode && !checked"> All
+		</label>
+		<label class="radio-inline" ng-class="{true: '', false: 'disabled'}[editMode]">
+		  <input type="radio" id="inlineRadio2" value="SR" ng-model="set.item_set.map" ng-change="set.item_set.mode = 'CLASSIC'" ng-disabled="!editMode && !checked"> Summoner's Rift
+		</label>
+		<label class="radio-inline" ng-class="{true: '', false: 'disabled'}[editMode]">
+		  <input type="radio" id="inlineRadio3" value="HA" ng-model="set.item_set.map" ng-change="set.item_set.mode = 'ARAM'" ng-disabled="!editMode && !checked"> Howling Abyss
+		</label>
+		<label class="radio-inline" ng-class="{true: '', false: 'disabled'}[editMode]">
+		  <input type="radio" id="inlineRadio4" value="TT" ng-model="set.item_set.map" ng-change="set.item_set.mode = 'CLASSIC'" ng-disabled="!editMode && !checked"> Twisted Treeline
+		</label>
+		<label class="radio-inline" ng-class="{true: '', false: 'disabled'}[editMode]">
+		  <input type="radio" id="inlineRadio5" value="CS" ng-model="set.item_set.map" ng-change="set.item_set.mode = 'ODIN'" ng-disabled="!editMode && !checked"> Crystal Scar
+		</label>
+	</div>
+
+  </div>
+
+  <button class='pull-right btn btn-custom' style="margin-top: 10px; margin-right: 15px" ng-click="toggleEditMode()" ng-hide="editMode">Edit Item Set</button>
+  <button class='pull-right btn btn-custom' style="margin-top: 5px; margin-right: 15px" ng-click="toggleEditMode()" ng-show="editMode">Update</button>
+
+  <div class="col-xs-12" style="text-align: left; margin-top: 10px; background-color: #091511; border-radius: 5px; padding: 10px; border: 2px solid #c9c47a;">
+    <textarea id='to_copy'class="form-control" rows="3">{{set.item_set | json}}</textarea>
+    <p style="color: #84f3ca; margin-top: 20px">Save this text as a JSON file (i.e. ItemSet.json), and place it in your <strong style="color: #14C74A">League of Legends\Config\Champions\<span style="color: yellow">{{champions[set.championId].key}}</span>\Recommended\</strong> directory.</p>
+    <p style="color: #84f3ca">For more information about saving item sets, <a ng-href="#/how_to">click here.</a></p>
+    <button class='pull-right btn btn-custom' id="copy-button" data-clipboard-target='to_copy' title="Click to copy me.">Copy to Clipboard</button>
+  </div>
+  
+</div>

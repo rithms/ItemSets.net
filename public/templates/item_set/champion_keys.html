@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-12" style="text-align: left; background-color: #162b27; border-top-left-radius: 5px; border-top-right-radius: 5px; padding-bottom: 10px; border-color: #c9c47a; border-style: solid; border-width: 2px">
+  	<h2 style="color: #c9c47a">Champion Keys</h2>
+  </div>
+
+  <div class="col-xs-12" style="text-align: left; background-color: #091511; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; border-color: #c9c47a; border-style: solid; border-top-width: 0;">
+  	<div class="col-xs-12" style="text-align: left; border: 0 solid #05312d;">
+  		<h4 style="color: #c9c47a">Name - Key</h4>
+      <h4 style="color: #84f3ca" ng-repeat="champion in champions" ng-show="champion.name !== ''">{{champion.name}} - {{champion.key}}</h4>
+	  </div>
+  </div>
+  
+</div>
