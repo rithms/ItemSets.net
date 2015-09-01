@@ -51,6 +51,7 @@ sudo apt-get install -y mongodb-org
 ```
 
 ##### Run MongoDB
+If it isn't already running, start mongodb.
 ```bash
 sudo service mongod start
 ```
@@ -76,8 +77,32 @@ sudo apt-get install npm
 ```bash
 npm install -g express
 ```
-You can take out the -g tag if you don't want to install globally.
 
+#### Node Modules
+In the ItemSets.net directory install all the node_module dependencies by running:
 
+###### OSX and Ubuntu:
+```bash
+npm install
+```
 
+#### Run Server
+###### OSX:
+```bash
+node server.js
+```
 
+###### Ubuntu:
+```bash
+nodejs server.js
+```
+
+The server will be running at http://localhost:3000
+
+#### Setup API Key
+
+Before running the server, you will need to add your own API Key to the project.
+In the file [riot_module/riot.js](https://github.com/rithms/ItemSets.net/blob/master/riot_module/riot.js), add your key to the follow line:
+```bash
+var	key = "API-KEY-HERE";
+```
