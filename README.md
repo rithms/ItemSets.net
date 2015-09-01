@@ -97,6 +97,14 @@ npm install
 ```
 Other dependencies, such as AngularJS, Bootstrap, jQuery, etc. are downloaded via a CDN, so you don't have to worry about them.
 
+### Setup API Key
+
+Before running the server, you will need to add your own API Key to the project.
+In the file [riot_module/riot.js](https://github.com/rithms/ItemSets.net/blob/master/riot_module/riot.js), add your key to the following line:
+```bash
+var	key = "API-KEY-HERE";
+```
+
 ### Run Server
 ###### OSX:
 ```bash
@@ -109,15 +117,6 @@ nodejs server.js
 ```
 
 The server will be running at http://localhost:3000
-
-### Setup API Key
-
-Before running the server, you will need to add your own API Key to the project.
-In the file [riot_module/riot.js](https://github.com/rithms/ItemSets.net/blob/master/riot_module/riot.js), add your key to the following line:
-```bash
-var	key = "API-KEY-HERE";
-```
-
 
 ## Backend
 
@@ -156,17 +155,24 @@ These methods are used by the server to call and store data when needed in the d
 
 ### API ([Source](https://github.com/rithms/ItemSets.net/blob/master/routes/api.js))
 
-The front-end of the application communicates with a **API**. This API has consists of the following endpoints, along with some alternate versions to help with pagination.
+The front-end of the application communicates with an **API**. This API has consists of the following endpoints, along with some alternate versions to help with pagination.
 
 #### Static Data
+
 **/api/champions** - Get all champion data
+
 **/api/items** - Get all item data
+
 **/api/spells** - Get all spell data
 
 #### Featured Sets
+
 **/api/featured_sets/mode/{matchMode}/tier/{tier}/by-champion/{championId}** - Get featured sets from given matchMode, tier, and champion
+
 **/api/featured_sets/mode/{matchMode}/tier/{tier}** - Get featured sets from given match mode and tier
+
 **/api/featured_sets/mode/{matchMode}** - Get featured sets from given match mode
+
 **/api/featured_sets** - Get all featured sets
 
 These endpoints serve data to the front end.
