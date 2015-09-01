@@ -1,5 +1,15 @@
 # ItemSets.net
 
+'ItemSets.net' is a web app that generates Item Sets based on high elo player item builds from Featured Games.
+The app generates item sets by analyzing build orders and categorizing items into 5 item set blocks: 'Starting Items', 'Offensive Items', 'Defensive Items', 'Final Build', and 'Consumables'.
+
+The app allows you to search item sets by queue (Ranked Solo, ARAM), ranked tier (Challenger, Master, Diamond), and even champion!
+
+There is even a Summoner Search feature coming soon, allowing you to generate item sets based on your own match history!
+
+For more information, visit the [About Page.](http://itemsets.net/#/about)
+
+
 ## Demo
 The web app can be found here:
 http://itemsets.net
