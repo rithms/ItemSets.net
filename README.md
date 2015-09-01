@@ -1,10 +1,10 @@
 # ItemSets.net
 
-### Demo
+## Demo
 The web app can be found here:
 http://itemsets.net
 
-### Tech
+## Tech
 
 "ItemSets.net" was developed with the following tech stack (MEAN):
 
@@ -18,7 +18,7 @@ http://itemsets.net
 * [jQuery](https://jquery.com/) - Cross-platform Javascript library
 * [Riot Games API](https://developer.riotgames.com/) - League of Legends game data
 
-### Setup
+## Setup
 
 Clone the repo and cd in.
 ```bash
@@ -34,7 +34,7 @@ If you are using Ubuntu, before you install anything run:
 sudo apt-get update
 ```
 
-#### MongoDB
+### MongoDB
 
 ##### Download MongoDB
 
@@ -56,7 +56,7 @@ If it isn't already running, start mongodb.
 sudo service mongod start
 ```
 
-#### Node.js and npm
+### Node.js and npm
 
 ##### Download Node.js
 
@@ -71,14 +71,14 @@ sudo apt-get install nodejs
 sudo apt-get install npm
 ```
 
-#### Express.js
+### Express.js
 
 ##### Download Express.js
 ```bash
 npm install -g express
 ```
 
-#### Node Modules
+### Node Modules
 In the ItemSets.net directory install all the node_module dependencies by running:
 
 ###### OSX and Ubuntu:
@@ -86,7 +86,7 @@ In the ItemSets.net directory install all the node_module dependencies by runnin
 npm install
 ```
 
-#### Run Server
+### Run Server
 ###### OSX:
 ```bash
 node server.js
@@ -99,7 +99,7 @@ nodejs server.js
 
 The server will be running at http://localhost:3000
 
-#### Setup API Key
+### Setup API Key
 
 Before running the server, you will need to add your own API Key to the project.
 In the file [riot_module/riot.js](https://github.com/rithms/ItemSets.net/blob/master/riot_module/riot.js), add your key to the follow line:
