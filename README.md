@@ -20,6 +20,11 @@ http://itemsets.net
 
 ### Setup
 
+Clone the repo and cd in.
+```bash
+cd ItemSets.net
+```
+
 To run the project locally, you will need to install the following dependencies:
 
 MongoDB, Node.js/npm, Express.js
@@ -40,14 +45,14 @@ sudo brew install mongodb
 
 ###### Ubuntu:
 ```bash
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 sudo apt-get install -y mongodb-org
 ```
 
 ##### Run MongoDB
-
-###### OSX and Ubuntu:
 ```bash
-mongod
+sudo service mongod start
 ```
 
 #### Node.js and npm
@@ -62,6 +67,7 @@ sudo brew install node
 ###### Ubuntu:
 ```bash
 sudo apt-get install nodejs
+sudo apt-get install npm
 ```
 
 #### Express.js
@@ -71,6 +77,7 @@ sudo apt-get install nodejs
 npm install -g express
 ```
 You can take out the -g tag if you don't want to install globally.
+
 
 
 
