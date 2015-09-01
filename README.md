@@ -140,7 +140,7 @@ Although MongoDB doesn't enforce schemas, the following schemas were created usi
 
 ##### Set Schema ([Source](https://github.com/rithms/ItemSets.net/blob/master/models/set.js))
 - [API Example](http://itemsets.net/api/featured_sets)
-- 
+
 ### Riot Module ([Source](https://github.com/rithms/ItemSets.net/blob/master/riot_module/riot.js))
 A module was created to make requests to the Riot Games API. The module enforces the rate limit, making sure to respect the appropriate retry-after headers and 429 response code. This module has the following methods:
 
