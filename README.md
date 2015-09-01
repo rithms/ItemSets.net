@@ -117,3 +117,62 @@ In the file [riot_module/riot.js](https://github.com/rithms/ItemSets.net/blob/ma
 ```bash
 var	key = "API-KEY-HERE";
 ```
+
+
+## Backend
+
+
+### Datastore Schema
+
+Although MongoDB doesn't enforce schemas, the following schemas were created using Mongoose to store data:
+
+##### Champion Schema ([Source](https://github.com/rithms/ItemSets.net/blob/master/models/champion.js))
+- [API Example](http://itemsets.net/api/champions)
+
+##### Item Schema ([Source](https://github.com/rithms/ItemSets.net/blob/master/models/item.js))
+- [API Example](http://itemsets.net/api/items)
+
+##### Spell Schema ([Source](https://github.com/rithms/ItemSets.net/blob/master/models/spell.js))
+- [API Example](http://itemsets.net/api/spells)
+
+##### Match Schema ([Source](https://github.com/rithms/ItemSets.net/blob/master/models/match.js))
+
+##### Set Schema ([Source](https://github.com/rithms/ItemSets.net/blob/master/models/set.js))
+
+### Riot Module ([Source](https://github.com/rithms/ItemSets.net/blob/master/riot_module/riot.js))
+A module was created to make requests to the Riot Games API. The module enforces the rate limit, making sure to respect the appropriate retry-after headers and 429 response code. This module has the following methods:
+
+- **getSummonerByName()**
+- **getMatchList()**
+- **getMatch()**
+- **getChampionData()**
+- **getItemData()**
+- **getSpellData()**
+- **getFeaturedGameData()**
+
+These methods are used by the server to call and store data when needed in the datastore.
+
+### API ([Source](https://github.com/rithms/ItemSets.net/blob/master/routes/api.js))
+
+The front-end of the application communicates with a **API**. This API has consists of the following endpoints, along with some alternate versions to help with pagination.
+
+#### Static Data
+**/api/champions** - Get all champion data
+**/api/items** - Get all item data
+**/api/spells** - Get all spell data
+
+#### Featured Sets
+**/api/featured_sets/mode/{matchMode}/tier/{tier}/by-champion/{championId}** - Get featured sets from given matchMode, tier, and champion
+**/api/featured_sets/mode/{matchMode}/tier/{tier}** - Get featured sets from given match mode and tier
+**/api/featured_sets/mode/{matchMode}** - Get featured sets from given match mode
+**/api/featured_sets** - Get all featured sets
+
+These endpoints serve data to the front end.
+
+### Server Details
+
+The server periodically calls the getFeaturedGame() method of the riot module, and stores the matchIds of these featured games.
+
+The server also periodically checks each of the stored matchIds to see if the game has ended yet. When the game ends, the server retrieves the match detail data, and generates and stores an item set. (See [generator.js](https://github.com/rithms/ItemSets.net/blob/master/modules/generator.js))
+
+These item sets are then served to the front-end via the API (See Featured Sets endpoint).
