@@ -169,11 +169,11 @@ The front-end of the application communicates with an **API**. This API has cons
 
 #### Featured Sets
 
-**/api/featured_sets/mode/{matchMode}/tier/{tier}/by-champion/{championId}** - Get featured sets from given matchMode, tier, and champion
+**/api/featured_sets/queue/{queueType}/tier/{tier}/by-champion/{championId}** - Get featured sets from given queue type, tier, and champion
 
-**/api/featured_sets/mode/{matchMode}/tier/{tier}** - Get featured sets from given match mode and tier
+**/api/featured_sets/queue/{queueType}/tier/{tier}** - Get featured sets from given queue type and tier
 
-**/api/featured_sets/mode/{matchMode}** - Get featured sets from given match mode
+**/api/featured_sets/queue/{queueType}** - Get featured sets from given queue type
 
 **/api/featured_sets** - Get all featured sets
 

@@ -1,4 +1,5 @@
 angular.module('ItemSetApp').config(['$routeProvider', function($routeProvider) {
+
   $routeProvider
     .when('/', {
       redirectTo: '/featured_sets'

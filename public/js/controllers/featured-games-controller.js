@@ -4,10 +4,10 @@ angular.module('ItemSetApp')
 		$scope.index = 0;
 		$scope.hasMoreData = true;
 		$scope.loading = true;
-		$scope.mode = 'CLASSIC';
+		$scope.queue = 'RANKED_SOLO_5x5';
 		$scope.tier = 'CHALLENGER';
 
-		$http.get('/api/featured_sets/mode/' + $scope.mode + '/tier/' + $scope.tier + '/' + $scope.index).success(function(data) {
+		$http.get('/api/featured_sets/queue/' + $scope.queue + '/tier/' + $scope.tier + '/' + $scope.index).success(function(data) {
 				$scope.sets = data;
 				$scope.index += 30;
 				$scope.loading = false;
@@ -37,15 +37,16 @@ angular.module('ItemSetApp')
 
 		$scope.getMoreMatches = function() {
 			var endpoint = "";
+			//If filtering by champion, use by-champion endpoint
 			if(parseInt($scope.championId) > 0) {
-				endpoint = '/api/featured_sets/mode/' + $scope.mode + '/tier/' + $scope.tier + '/by-champion/' + $scope.championId + '/' + $scope.index;
-				if($scope.mode === 'ARAM' || $scope.tier === 'ALL') {
-					endpoint = '/api/featured_sets/mode/' + $scope.mode + '/by-champion/'+ $scope.championId + '/' + $scope.index;
+				endpoint = '/api/featured_sets/queue/' + $scope.queue + '/tier/' + $scope.tier + '/by-champion/' + $scope.championId + '/' + $scope.index;
+				if($scope.queue === 'ARAM' || $scope.tier === 'ALL') {
+					endpoint = '/api/featured_sets/queue/' + $scope.queue + '/by-champion/'+ $scope.championId + '/' + $scope.index;
 				}
 			} else {
-				endpoint = '/api/featured_sets/mode/' + $scope.mode + '/tier/' + $scope.tier + '/' + $scope.index;
-				if($scope.mode === 'ARAM' || $scope.tier === 'ALL') {
-					endpoint = '/api/featured_sets/mode/' + $scope.mode + '/' + $scope.index;
+				endpoint = '/api/featured_sets/queue/' + $scope.queue + '/tier/' + $scope.tier + '/' + $scope.index;
+				if($scope.tier === 'ALL') {
+					endpoint = '/api/featured_sets/queue/' + $scope.queue + '/' + $scope.index;
 				}
 			}
 
@@ -67,8 +68,8 @@ angular.module('ItemSetApp')
 			$scope.getMoreMatches();
 		};
 
-		$scope.setMode = function(mode) {
-			$scope.mode = mode;
+		$scope.setQueue = function(queue) {
+			$scope.queue = queue;
 			$scope.loadData();
 		};
 

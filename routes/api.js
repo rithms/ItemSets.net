@@ -74,10 +74,10 @@ router.route('/spells')
 
 // Featured Set Endpoints --------------------------
 
-// Get featured sets for the given mode and tier (limit 30)
-router.route('/featured_sets/mode/:matchMode/tier/:tier/by-champion/:championId')
+// Get featured sets for the given queue and tier (limit 30)
+router.route('/featured_sets/queue/:queueType/tier/:tier/by-champion/:championId')
 	.get(function(req, res) {
-		ItemSet.find({'matchMode': req.params.matchMode, 'tier': req.params.tier, 'championId': parseInt(req.params.championId)}).sort({matchId: -1}).limit(30).exec(function(err, sets) {
+		ItemSet.find({'queueType': req.params.queueType, 'tier': req.params.tier, 'championId': parseInt(req.params.championId)}).sort({matchId: -1}).limit(30).exec(function(err, sets) {
 			if(err) console.log(err);
 			if(sets) {
 				res.json(sets);
@@ -85,10 +85,10 @@ router.route('/featured_sets/mode/:matchMode/tier/:tier/by-champion/:championId'
 		});
 	});
 
-// Get featured sets for the given mode and tier, specifying a begin index for pagination (limit 30)
-router.route('/featured_sets/mode/:matchMode/tier/:tier/by-champion/:championId/:beginIndex')
+// Get featured sets for the given queue and tier, specifying a begin index for pagination (limit 30)
+router.route('/featured_sets/queue/:queueType/tier/:tier/by-champion/:championId/:beginIndex')
 	.get(function(req, res) {
-		ItemSet.find({'matchMode': req.params.matchMode, 'tier': req.params.tier, 'championId': parseInt(req.params.championId)}).sort({matchId: -1}).skip(parseInt(req.params.beginIndex)).limit(30).exec(function(err, sets) {
+		ItemSet.find({'queueType': req.params.queueType, 'tier': req.params.tier, 'championId': parseInt(req.params.championId)}).sort({matchId: -1}).skip(parseInt(req.params.beginIndex)).limit(30).exec(function(err, sets) {
 			if(err) console.log(err);
 			if(sets) {
 				res.json(sets);
@@ -96,10 +96,10 @@ router.route('/featured_sets/mode/:matchMode/tier/:tier/by-champion/:championId/
 		});
 	});
 
-// Get featured sets for the given mode and tier, specifying a begin index for pagination (limit 30)
-router.route('/featured_sets/mode/:matchMode/by-champion/:championId/:beginIndex')
+// Get featured sets for the given queue and tier, specifying a begin index for pagination (limit 30)
+router.route('/featured_sets/queue/:queueType/by-champion/:championId/:beginIndex')
 	.get(function(req, res) {
-		ItemSet.find({'matchMode': req.params.matchMode, 'championId': parseInt(req.params.championId)}).sort({matchId: -1}).skip(parseInt(req.params.beginIndex)).limit(30).exec(function(err, sets) {
+		ItemSet.find({'queueType': req.params.queueType, 'championId': parseInt(req.params.championId)}).sort({matchId: -1}).skip(parseInt(req.params.beginIndex)).limit(30).exec(function(err, sets) {
 			if(err) console.log(err);
 			if(sets) {
 				res.json(sets);
@@ -107,10 +107,10 @@ router.route('/featured_sets/mode/:matchMode/by-champion/:championId/:beginIndex
 		});
 	});
 
-// Get featured sets for the given mode and tier (limit 30)
-router.route('/featured_sets/mode/:matchMode/tier/:tier')
+// Get featured sets for the given queue and tier (limit 30)
+router.route('/featured_sets/queue/:queueType/tier/:tier')
 	.get(function(req, res) {
-		ItemSet.find({'matchMode': req.params.matchMode, 'tier': req.params.tier}).sort({matchId: -1}).limit(30).exec(function(err, sets) {
+		ItemSet.find({'queueType': req.params.queueType, 'tier': req.params.tier}).sort({matchId: -1}).limit(30).exec(function(err, sets) {
 			if(err) console.log(err);
 			if(sets) {
 				res.json(sets);
@@ -118,10 +118,10 @@ router.route('/featured_sets/mode/:matchMode/tier/:tier')
 		});
 	});
 
-// Get featured sets for the given mode and tier, specifying a begin index for pagination (limit 30)
-router.route('/featured_sets/mode/:matchMode/tier/:tier/:beginIndex')
+// Get featured sets for the given queue and tier, specifying a begin index for pagination (limit 30)
+router.route('/featured_sets/queue/:queueType/tier/:tier/:beginIndex')
 	.get(function(req, res) {
-		ItemSet.find({'matchMode': req.params.matchMode, 'tier': req.params.tier}).sort({matchId: -1}).skip(parseInt(req.params.beginIndex)).limit(30).exec(function(err, sets) {
+		ItemSet.find({'queueType': req.params.queueType, 'tier': req.params.tier}).sort({matchId: -1}).skip(parseInt(req.params.beginIndex)).limit(30).exec(function(err, sets) {
 			if(err) console.log(err);
 			if(sets) {
 				res.json(sets);
@@ -130,10 +130,10 @@ router.route('/featured_sets/mode/:matchMode/tier/:tier/:beginIndex')
 	});
 
 
-// Get featured sets for the given mode (limit 30)
-router.route('/featured_sets/mode/:matchMode')
+// Get featured sets for the given queue (limit 30)
+router.route('/featured_sets/queue/:queueType')
 	.get(function(req, res) {
-		ItemSet.find({'matchMode': req.params.matchMode}).sort({matchId: -1}).limit(30).exec(function(err, sets) {
+		ItemSet.find({'queueType': req.params.queueType}).sort({matchId: -1}).limit(30).exec(function(err, sets) {
 			if(err) console.log(err);
 			if(sets) {
 				res.json(sets);
@@ -141,10 +141,10 @@ router.route('/featured_sets/mode/:matchMode')
 		});
 	});
 
-// Get featured sets for the given mode, specifying a begin index for pagination (limit 30)
-router.route('/featured_sets/mode/:matchMode/:beginIndex')
+// Get featured sets for the given queue, specifying a begin index for pagination (limit 30)
+router.route('/featured_sets/queue/:queueType/:beginIndex')
 	.get(function(req, res) {
-		ItemSet.find({'matchMode': req.params.matchMode}).sort({matchId: -1}).skip(parseInt(req.params.beginIndex)).limit(30).exec(function(err, sets) {
+		ItemSet.find({'queueType': req.params.queueType}).sort({matchId: -1}).skip(parseInt(req.params.beginIndex)).limit(30).exec(function(err, sets) {
 			if(err) console.log(err);
 			if(sets) {
 				res.json(sets);

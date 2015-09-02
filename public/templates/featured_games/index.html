@@ -3,13 +3,14 @@
     <h2 style="color: #84f3ca">Featured Item Sets</h2>
   </div>
   <ul class="nav nav-pills nav-justified" style="margin-bottom: 10px">
-    <li role="presentation" ng-class="{true: 'active', false: ''}[mode === 'CLASSIC']" ng-click="setMode('CLASSIC')"><a>Ranked Solo</a></li>
-    <li role="presentation" ng-class="{true: 'active', false: ''}[mode === 'ARAM']" ng-click="setMode('ARAM')"><a>ARAM</a></li>
+    <li role="presentation" ng-class="{true: 'active', false: ''}[queue === 'RANKED_SOLO_5x5']" ng-click="setQueue('RANKED_SOLO_5x5')"><a>Ranked Solo</a></li>
+    <li role="presentation" ng-class="{true: 'active', false: ''}[queue === 'NORMAL_5x5_BLIND']" ng-click="setQueue('NORMAL_5x5_BLIND')"><a>Normal</a></li>
+    <li role="presentation" ng-class="{true: 'active', false: ''}[queue === 'ARAM_5x5']" ng-click="setQueue('ARAM_5x5')"><a>ARAM</a></li>
   </ul>
 </div>
 
 <div class="row">
-  <div ng-show="mode === 'CLASSIC'" class="col-xs-6 pull-left" style="text-align: center">
+  <div class="col-xs-6 pull-left" style="text-align: center">
     <ul class="nav nav-pills nav-pills-custom" style="margin-bottom: 10px">
       <li role="presentation" ng-class="{true: 'active', false: ''}[tier === 'ALL']" ng-click="setTier('ALL')">
         <a> <img style="vertical-align: middle; height: 25px;" ng-src="img/tier-icons/base_icons/UNRANKED.png"> All</a></li>
@@ -41,9 +42,9 @@
     <div style="margin-bottom: 10px; height: 30px; line-height: 30px; border-top-right-radius: 5px; background-color: #162b27;
     border-bottom-width: 1px; border-bottom-color: #c9c47a; border-bottom-style: solid; border-left-style: none">
        <img data-toggle="tooltip" data-placement="left" title="{{set.tier}}" style="vertical-align: middle; height: 25px; padding-left: 10px" ng-src="img/tier-icons/base_icons/{{set.tier}}.png">
-       <img ng-show="mode === 'CLASSIC'" style="vertical-align: middle; height: 20px;" ng-src="img/profileicon/{{set.icon}}.png">
-       <h4 ng-show="mode === 'CLASSIC'" style="display: inline; vertical-align: middle; color: #c9c47a">{{set.name}}</h4>
-       <h4 ng-show="mode === 'ARAM'" style="display: inline; vertical-align: middle; color: #c9c47a">{{champions[set.championId].name}}</h4>
+       <img ng-show="queue === 'RANKED_SOLO_5x5'" style="vertical-align: middle; height: 20px;" ng-src="img/profileicon/{{set.icon}}.png">
+       <h4 ng-show="queue === 'RANKED_SOLO_5x5'" style="display: inline; vertical-align: middle; color: #c9c47a">{{set.name}}</h4>
+       <h4 ng-show="queue === 'ARAM_5x5' || queue === 'NORMAL_5x5_BLIND'" style="display: inline; vertical-align: middle; color: #c9c47a">{{champions[set.championId].name}}</h4>
        <h5 class="pull-right" style="display: inline; vertical-align: middle; margin-right: 100px; color: #c9c47a">{{set.updated_at | date}}</h5>
      </div>
 

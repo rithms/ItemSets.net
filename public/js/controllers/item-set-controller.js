@@ -171,11 +171,11 @@ angular.module('ItemSetApp')
 		delete data.offensive;
 		delete data.defensive;
 		delete data.consumable;
-	}
+	};
 
 
 	$scope.toggleEditMode = function() {
 		$scope.editMode = !($scope.editMode);
-	}
+	};
 
 	}]);
