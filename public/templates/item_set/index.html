@@ -52,7 +52,14 @@
     <textarea id='to_copy'class="form-control" rows="3">{{set.item_set | json}}</textarea>
     <p style="color: #84f3ca; margin-top: 20px">Save this text as a JSON file (i.e. ItemSet.json), and place it in your <strong style="color: #14C74A">League of Legends\Config\Champions\<span style="color: yellow">{{champions[set.championId].key}}</span>\Recommended\</strong> directory.</p>
     <p style="color: #84f3ca">For more information about saving item sets, <a ng-href="#/how_to">click here.</a></p>
-    <button class='pull-right btn btn-custom' id="copy-button" data-clipboard-target='to_copy' title="Click to copy me.">Copy to Clipboard</button>
+    <button class='pull-right btn btn-custom' id="copy-button" data-clipboard-text="{{set.item_set}}">Copy to Clipboard</button>
   </div>
   
 </div>
+<script>
+var client = new ZeroClipboard( $('#copy-button'));
+
+client.on( "ready", function( readyEvent ) {
+
+});
+</script>
