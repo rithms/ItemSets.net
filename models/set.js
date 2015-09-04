@@ -52,6 +52,7 @@ var SetSchema = new Schema({
 	season: String,
 	gold: { type: Number, default: 0 },
 	minions: { type: Number, default: 0 },
+	date: Date,
 	updated_at: { type: Date, default: Date.now },
 });
 
