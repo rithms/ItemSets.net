@@ -40,7 +40,7 @@ angular.module('ItemSetApp')
 			//If filtering by champion, use by-champion endpoint
 			if(parseInt($scope.championId) > 0) {
 				endpoint = '/api/featured_sets/queue/' + $scope.queue + '/tier/' + $scope.tier + '/by-champion/' + $scope.championId + '/' + $scope.index;
-				if($scope.queue === 'ARAM' || $scope.tier === 'ALL') {
+				if($scope.tier === 'ALL') {
 					endpoint = '/api/featured_sets/queue/' + $scope.queue + '/by-champion/'+ $scope.championId + '/' + $scope.index;
 				}
 			} else {
