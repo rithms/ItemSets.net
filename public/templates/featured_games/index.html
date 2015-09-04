@@ -45,7 +45,7 @@
        <img ng-show="queue === 'RANKED_SOLO_5x5'" style="vertical-align: middle; height: 20px;" ng-src="img/profileicon/{{set.icon}}.png">
        <h4 ng-show="queue === 'RANKED_SOLO_5x5'" style="display: inline; vertical-align: middle; color: #c9c47a">{{set.name}}</h4>
        <h4 ng-show="queue === 'ARAM_5x5' || queue === 'NORMAL_5x5_BLIND'" style="display: inline; vertical-align: middle; color: #c9c47a">{{champions[set.championId].name}}</h4>
-       <h5 class="pull-right" style="display: inline; vertical-align: middle; margin-right: 100px; color: #c9c47a">{{set.updated_at | date}}</h5>
+       <h5 class="pull-right" style="display: inline; vertical-align: middle; margin-right: 100px; color: #c9c47a">{{set.date | moment: 'fromNow'}}</h5>
      </div>
 
     <div style="height: 100px; margin-bottom: 10px;">
