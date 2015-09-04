@@ -81,4 +81,5 @@ setInterval(function() {
 setInterval(function() {
 	ItemSet.find({
     updated_at : { $lte : new Date(ISODate().getTime() - 1000 * 60 * 60 * 3) } }).remove({}).exec();
+    Match.find({}).remove({}).exec();
 }, 12 * 60 * 60000);
