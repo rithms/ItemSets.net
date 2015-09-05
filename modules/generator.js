@@ -42,8 +42,6 @@ module.exports = {
 							console.log("Timeline data not found. Match ID: " + data.matchId);
 							console.log("--------------------");
 							Match.update({id: match.id}, {date: Date.now()}, function(){});
-					} else if(status_code === 404){
-						Match.remove({id: match.id}, function(){});
 					} else {
 						console.log("Something went wrong: " + status_code.toString());
 					}
