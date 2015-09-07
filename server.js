@@ -77,9 +77,15 @@ setInterval(function() {
 		});
 }, 30000);
 
-// Clear-out old featured item sets every 12 hours (keeps item sets created within last 3 hours)
-setInterval(function() {
+var clearOldSets = function() {
+	var d = new Date;
+	d.setHours(d.getHours() - 3);
 	ItemSet.find({
-    updated_at : { $lte : new Date(ISODate().getTime() - 1000 * 60 * 60 * 3) } }).remove({}).exec();
+    date : { $lte : d } }).remove({}).exec();
     Match.find({}).remove({}).exec();
-}, 12 * 60 * 60000);
+}
+
+clearOldSets();
+
+// Clear-out old featured item sets every 12 hours (keeps item sets created within last 3 hours)
+setInterval(clearOldSets, 12 * 60 * 60000);
