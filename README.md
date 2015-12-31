@@ -9,12 +9,9 @@ The web app currently only provides item sets from matches in the NA region. Mor
 
 There is even a Summoner Search feature coming soon, allowing you to generate item sets based on your own match history!
 
-For more information, visit the [About Page.](http://itemsets.net/#/about)
-
 
 ## Demo
-The web app can be found here:
-http://itemsets.net
+Live demo no longer available.
 
 ## Tech
 
