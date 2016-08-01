@@ -11,7 +11,7 @@ There is even a Summoner Search feature coming soon, allowing you to generate it
 
 
 ## Demo
-http://itemsets.net
+A demo for this project is no longer available.
 
 ## Tech
 
